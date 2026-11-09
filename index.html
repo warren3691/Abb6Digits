@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>เลขเด่น 6 หลักรัฐบาล (สูตรย่อ)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@500;700&family=Sarabun:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#120d0b;--lac:#1c1411;--cell:#0c0807;--vermil:#8e1b12;--gold:#c9a24b;--gold2:#f2d27e;--ivory:#f4e8c8;--dim:#a8977a;
+color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;min-height:100vh;color:var(--ivory);font:400 1rem/1.6 'Sarabun','Noto Sans Thai',sans-serif;
+background:radial-gradient(ellipse 70% 40% at 50% 0,rgba(142,27,18,.45),transparent 70%),
+radial-gradient(circle at 1px 1px,rgba(201,162,75,.10) 1px,transparent 1.5px) 0 0/22px 22px,var(--ink)}
+.wrap{max-width:1040px;margin:0 auto;padding:28px 16px 40px}
+h1,h2,.serif{font-family:'Noto Serif Thai','Sarabun',serif}
+header{text-align:center;margin-bottom:20px}
+h1{margin:0;font-size:clamp(1.8rem,6vw,3rem);font-weight:700;line-height:1.3;color:var(--gold2);text-shadow:0 0 24px rgba(201,162,75,.35)}
+header p{margin:4px 0 0;color:var(--dim)}
+.steps{display:flex;justify-content:center;gap:8px;list-style:none;margin:0 0 22px;padding:0;flex-wrap:wrap}
+.steps li{padding:4px 14px;border:1px solid rgba(201,162,75,.35);border-radius:999px;color:var(--dim);font-size:.9rem}
+.steps li.on{background:var(--gold);color:var(--ink);border-color:var(--gold);font-weight:600}
+.steps li.done{color:var(--gold2);border-color:var(--gold)}
+.panel{background:linear-gradient(180deg,var(--lac),#140e0c);border:1px solid var(--gold);border-radius:4px;padding:28px 20px;
+box-shadow:0 0 0 5px var(--ink),0 0 0 6px rgba(201,162,75,.45),0 20px 60px rgba(0,0,0,.6)}
+section[hidden]{display:none}
+h2{margin:0 0 18px;font-size:1.35rem;font-weight:500;color:var(--gold2);text-align:center}
+.fields{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:760px;margin:0 auto 28px}
+label{display:block;font-size:.95rem;color:var(--gold);margin-bottom:4px}
+select{width:100%;padding:10px 8px;font:inherit;font-size:1.05rem;color:var(--ivory);background:var(--cell);border:1.5px solid var(--gold);border-radius:6px}
+select:focus,input:focus,button:focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
+.prize{text-align:center}
+.prize>label{font-size:1.05rem;margin-bottom:10px}
+.digits{display:flex;justify-content:center;gap:clamp(6px,2vw,14px)}
+.digits input{width:clamp(2.6rem,11vw,3.8rem);height:clamp(3.4rem,14vw,4.8rem);text-align:center;font:700 clamp(1.6rem,7vw,2.4rem) 'Noto Serif Thai',serif;
+color:var(--gold2);background:var(--cell);border:2px solid var(--gold);border-radius:6px;padding:0}
+.msg{min-height:1.6em;margin:16px 0 0;text-align:center;color:#ff9b8a}
+.note{color:#e6c56f}
+.actions{display:flex;justify-content:center;gap:12px;margin-top:20px;flex-wrap:wrap}
+button{font:600 1.05rem 'Sarabun',sans-serif;padding:11px 30px;border-radius:6px;cursor:pointer;border:1.5px solid var(--gold)}
+.pri{background:linear-gradient(180deg,var(--gold2),var(--gold));color:var(--ink)}
+.sec{background:transparent;color:var(--gold2)}
+.summary{text-align:center;color:var(--dim);margin:-8px 0 20px}
+.summary b{color:var(--ivory);font-weight:600}
+.scroll{overflow-x:auto;padding-bottom:8px}
+.pyr{--p:clamp(26px,calc((100vw - 110px)/16),52px);display:flex;flex-direction:column;gap:calc(var(--p)*.14);width:max-content;margin:0 auto}
+.row{display:flex;align-items:center;gap:10px}
+.row>span{width:44px;font-size:.8rem;color:var(--dim);flex:none}
+.rw{position:relative;width:calc(var(--p)*16);height:calc(var(--p)*.86)}
+.c{position:absolute;top:0;transform:translateX(-50%);width:calc(var(--p)*.84);height:100%;display:grid;place-items:center;
+font:700 calc(var(--p)*.5) 'Noto Serif Thai',serif;background:var(--cell);border:1.5px solid var(--gold);border-radius:4px}
+.c.u{background:var(--gold);color:var(--ink);border-color:var(--gold2)}
+.legend{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:14px;color:var(--dim);font-size:.9rem}
+.legend i{width:16px;height:16px;background:var(--gold);border-radius:3px;display:inline-block}
+.groups{display:grid;grid-template-columns:1fr;gap:26px 40px}
+@media(min-width:820px){.groups{grid-template-columns:1fr 1fr}}
+.g{max-width:430px;width:100%;margin:0 auto}
+.hd,.res{display:grid;grid-template-columns:5.4rem repeat(6,1fr);gap:6px;align-items:center}
+.hd{color:var(--gold);font-size:.85rem;text-align:center;margin-bottom:6px;border-bottom:1px solid rgba(201,162,75,.3);padding-bottom:4px}
+.res{margin-bottom:7px}
+.res>span{font-size:.95rem;color:var(--ivory)}
+.o{aspect-ratio:1;max-width:46px;width:100%;margin:0 auto;display:grid;place-items:center;border:2px solid var(--gold);border-radius:50%;
+background:var(--cell);font:700 1.25rem 'Noto Serif Thai',serif;color:var(--gold2)}
+footer{margin-top:22px;text-align:center;color:var(--dim);font-size:.85rem}
+@media(max-width:560px){.fields{grid-template-columns:1fr 1fr}.row>span{width:30px;font-size:.7rem}.res{grid-template-columns:4.4rem repeat(6,1fr)}.hd{grid-template-columns:4.4rem repeat(6,1fr)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>เลขเด่น 6 หลักรัฐบาล</h1>
+  <p>สูตรย่อ คำนวณจากรางวัลที่ 1</p>
+</header>
+<ol class="steps" id="steps">
+  <li>หน้า 1 ใส่ข้อมูล</li><li>หน้า 2 พีระมิดตัวเลข</li><li>หน้า 3 ผลลัพธ์</li>
+</ol>
+
+<div class="panel">
+<section id="p1">
+  <h2>ใส่วันที่และรางวัลที่ 1 ล่าสุด</h2>
+  <div class="fields">
+    <div><label for="wd">วัน</label><select id="wd"></select></div>
+    <div><label for="dd">วันที่</label><select id="dd"></select></div>
+    <div><label for="mm">เดือน</label><select id="mm"></select></div>
+    <div><label for="yy">ค.ศ.</label><select id="yy"></select></div>
+  </div>
+  <div class="prize">
+    <label for="d0">รางวัลที่ 1 ล่าสุด (ช่องละ 1 หลัก)</label>
+    <div class="digits" id="prize"></div>
+  </div>
+  <p class="msg" id="msg1" role="alert"></p>
+  <div class="actions"><button class="pri" id="go">คำนวณ</button></div>
+</section>
+
+<section id="p2" hidden>
+  <h2>พีระมิดตัวเลข</h2>
+  <p class="summary" id="sum"></p>
+  <div class="scroll"><div class="pyr" id="pyr"></div></div>
+  <div class="legend"><i></i>ช่องที่นำไปใช้ในหน้า 3</div>
+  <div class="actions">
+    <button class="sec" data-to="0">แก้ไขข้อมูล</button>
+    <button class="pri" data-to="2">ดูผลลัพธ์ทั้ง 36 ชุด</button>
+  </div>
+</section>
+
+<section id="p3" hidden>
+  <h2>ผลลัพธ์ 36 ชุด</h2>
+  <div class="groups" id="groups"></div>
+  <div class="actions">
+    <button class="sec" data-to="1">กลับไปดูพีระมิด</button>
+    <button class="pri" data-to="0">คำนวณงวดใหม่</button>
+  </div>
+</section>
+</div>
+<footer>จัดทำเพื่อความบันเทิงและความเชื่อส่วนบุคคล ไม่รับประกันผลรางวัล</footer>
+</div>
+
+<script>
+const $=s=>document.querySelector(s);
+const DAYS=['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัสบดี','ศุกร์','เสาร์'];
+const MONTHS=['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'];
+const opt=(sel,v,t)=>{const o=document.createElement('option');o.value=v;o.textContent=t;sel.appendChild(o)};
+opt($('#wd'),'','เลือกวัน');DAYS.forEach((d,i)=>opt($('#wd'),i+1,d));
+opt($('#dd'),'','เลือกวันที่');for(let i=1;i<=31;i++)opt($('#dd'),i,i);
+opt($('#mm'),'','เลือกเดือน');MONTHS.forEach((m,i)=>opt($('#mm'),i+1,m));
+const cy=Math.min(2050,Math.max(2020,new Date().getFullYear()));
+for(let y=2020;y<=2050;y++)opt($('#yy'),y,y);
+$('#yy').value=cy;
+
+/* prize digit boxes */
+const boxes=[];
+for(let i=0;i<6;i++){
+  const el=document.createElement('input');
+  el.id='d'+i;el.maxLength=1;el.inputMode='numeric';el.autocomplete='off';el.setAttribute('aria-label','รางวัลที่ 1 หลักที่ '+(i+1));
+  el.addEventListener('input',()=>{el.value=el.value.replace(/\D/g,'').slice(-1);if(el.value&&i<5)boxes[i+1].focus()});
+  el.addEventListener('keydown',e=>{
+    if(e.key==='Backspace'&&!el.value&&i>0){boxes[i-1].value='';boxes[i-1].focus()}
+    if(e.key==='ArrowLeft'&&i>0)boxes[i-1].focus();
+    if(e.key==='ArrowRight'&&i<5)boxes[i+1].focus();
+    if(e.key==='Enter')$('#go').click();
+  });
+  el.addEventListener('paste',e=>{
+    const t=(e.clipboardData.getData('text')||'').replace(/\D/g,'');
+    if(!t)return;e.preventDefault();
+    for(let k=0;k<t.length&&i+k<6;k++)boxes[i+k].value=t[k];
+    boxes[Math.min(5,i+t.length)].focus();
+  });
+  boxes.push(el);$('#prize').appendChild(el);
+}
+
+/* sum, reduced to a single digit */
+const red=n=>{while(n>9)n=String(n).split('').reduce((a,b)=>a+ +b,0);return n};
+
+function calc(wd,d,m,y,prize){
+  const ds=String(d).padStart(2,'0'),ms=String(m).padStart(2,'0');
+  const r1=[0,wd,...ds,...ms,...String(y),...prize].map(Number);
+  const rows=[r1];
+  rows.push(Array.from({length:8},(_,i)=>red(r1[2*i]+r1[2*i+1])));
+  for(let k=2;k<9;k++){const p=rows[k-1];rows.push(p.slice(0,-1).map((v,i)=>red(v+p[i+1])))}
+  return rows;
+}
+
+/* cells used by page 3: row-col */
+const USED=new Set(['2-7','3-2','3-3','3-4','4-1','4-3','6-2','7-1','7-2']);
+
+function results(rows){
+  const g=(r,c)=>rows[r-1][c-1];
+  const D=[[7,1],[7,2],[6,2]];
+  const EF=[[[3,2],[3,4]],[[3,2],[4,1]],[[3,2],[4,3]],[[4,1],[3,4]],[[4,1],[4,1]],[[4,1],[4,3]]];
+  return Array.from({length:36},(_,n)=>{
+    const [e,f]=EF[n%6],d=D[Math.floor(n/6)%3];
+    return [g(2,7),g(3,4),n<18?g(3,3):g(3,4),g(...d),g(...e),g(...f)];
+  });
+}
+
+function renderPyr(rows){
+  const box=$('#pyr');box.innerHTML='';
+  rows.forEach((r,ri)=>{
+    const row=document.createElement('div');row.className='row';
+    row.innerHTML='<span>แถว '+(ri+1)+'</span>';
+    const rw=document.createElement('div');rw.className='rw';
+    r.forEach((v,ci)=>{
+      const c=document.createElement('div');
+      c.className='c'+(USED.has((ri+1)+'-'+(ci+1))?' u':'');
+      c.textContent=v;
+      c.style.left='calc(var(--p)*'+(ri===0?ci+.5:2*(ci+1)+ri-2)+')';
+      rw.appendChild(c);
+    });
+    row.appendChild(rw);box.appendChild(row);
+  });
+}
+
+function renderRes(list){
+  const box=$('#groups');box.innerHTML='';
+  for(let g=0;g<4;g++){
+    const el=document.createElement('div');el.className='g';
+    el.innerHTML='<div class="hd"><span></span>'+'ABCDEF'.split('').map(l=>'<span>'+l+'</span>').join('')+'</div>';
+    for(let i=g*9;i<g*9+9;i++){
+      const r=document.createElement('div');r.className='res';
+      r.innerHTML='<span>ผลลัพธ์ '+(i+1)+'</span>'+list[i].map(v=>'<div class="o">'+v+'</div>').join('');
+      el.appendChild(r);
+    }
+    box.appendChild(el);
+  }
+}
+
+function show(n){
+  ['#p1','#p2','#p3'].forEach((s,i)=>$(s).hidden=i!==n);
+  [...$('#steps').children].forEach((li,i)=>li.className=i===n?'on':i<n?'done':'');
+  window.scrollTo({top:0});
+}
+
+$('#go').addEventListener('click',()=>{
+  const wd=+$('#wd').value,d=+$('#dd').value,m=+$('#mm').value,y=+$('#yy').value;
+  const prize=boxes.map(b=>b.value);
+  const msg=$('#msg1');msg.className='msg';
+  if(!wd||!d||!m){msg.textContent='กรุณาเลือกวัน วันที่ และเดือนให้ครบ';return}
+  if(prize.some(v=>v==='')){msg.textContent='กรุณากรอกรางวัลที่ 1 ให้ครบ 6 หลัก';return}
+  const dt=new Date(y,m-1,d);
+  if(dt.getMonth()!==m-1){msg.textContent='วันที่ '+d+' ไม่มีในเดือน'+MONTHS[m-1]+' ปี '+y+' กรุณาตรวจสอบอีกครั้ง';return}
+  const actual=dt.getDay()+1;
+  if(actual!==wd&&!msg.dataset.ok){
+    msg.className='msg note';
+    msg.textContent='วันที่ '+d+' '+MONTHS[m-1]+' '+y+' ตรงกับวัน'+DAYS[actual-1]+' ไม่ใช่วัน'+DAYS[wd-1]+' ถ้าถูกต้องแล้ว กด “คำนวณ” อีกครั้ง';
+    msg.dataset.ok='1';return;
+  }
+  msg.textContent='';delete msg.dataset.ok;
+  const rows=calc(wd,d,m,y,prize);
+  $('#sum').innerHTML='วัน'+DAYS[wd-1]+' ที่ '+d+' '+MONTHS[m-1]+' ค.ศ. '+y+' &nbsp;รางวัลที่ 1 <b>'+prize.join('')+'</b>';
+  renderPyr(rows);renderRes(results(rows));show(1);
+});
+['#wd','#dd','#mm','#yy'].forEach(s=>$(s).addEventListener('change',()=>{const m=$('#msg1');m.textContent='';delete m.dataset.ok}));
+document.querySelectorAll('[data-to]').forEach(b=>b.addEventListener('click',()=>show(+b.dataset.to)));
+show(0);
+</script>
+</body>
+</html>
